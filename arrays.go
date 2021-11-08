@@ -42,6 +42,13 @@ func printArray2(arr *[5]int) {
 	}
 }
 
+func printArray3(arr []int) {
+	arr[1] = 100
+	for i, v := range arr {
+		fmt.Println(i, v)
+	}
+}
+
 func main() {
 	//数组定义
 	var array1 [5]int
@@ -61,5 +68,9 @@ func main() {
 	//利用指针实现引用传递
 	printArray2(&array1)
 	printArray2(&array3)
+	fmt.Println(array1, array2, array3)
+
+	printArray3(array1[:])
+	printArray3(array3[:])
 	fmt.Println(array1, array2, array3)
 }
